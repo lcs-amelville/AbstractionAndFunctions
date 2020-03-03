@@ -17,8 +17,14 @@
 /// - Parameter length: length of rectangle
 /// - Parameter width: width of rectangle
 /// - Returns: area of the rectangle
-func areaOfRectangle(length: Double, width: Double) -> Double {
+func areaOfRectangle(length: Double, width: Double) -> Double? {
     
+    // Ensure that we have reasonable values
+    guard length > 0, width > 0 else {
+        // we have 1 or more bad inputs so return nil
+        return nil
+    }
+    // if we are here we have good values, so return area
     return length * width
     
 }
@@ -30,10 +36,20 @@ func areaOfRectangle(length: Double, width: Double) -> Double {
  */
 
 // Invoke the function... to find the area of a rectangle that is 10 units long and 5 units wide
-let result = areaOfRectangle(length: 10, width: 5)
+//TEST CASE NUMBER 1: width: 5, length: 10, result: 50
+let result1 = areaOfRectangle(length: 10, width: 5)
+
+// Test case number 2 length: 10.5, width: 10 result: 105
+let result2 = areaOfRectangle(length: 10.5, width: 10)
+
+// Test case 3: legth: -5, width: 25, result: nil
+let result3 = areaOfRectangle(length: -5, width: 25)
+
+// Test case #4: length: 5 width: -25, result: nil
+let result4 = areaOfRectangle(length: 5, width: -25)
 
 // Report the results
-print("The area of that rectangle was \(result) square units.")
+print("The area of that rectangle was \(result1) square units.")
 
  
 /*:

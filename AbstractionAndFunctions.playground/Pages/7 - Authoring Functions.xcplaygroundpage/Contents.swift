@@ -32,11 +32,22 @@ import Foundation
 /// perimeter of a rectangle
 /// - Parameter length: length of a rectangle
 /// - Parameter width: width of a rectange
-func perimeterOfRectangle(length: Double, width: Double)-> Double {
+func perimeterOfRectangle(length: Double, width: Double)-> Double? {
+    
+    guard length > 0, width > 0 else {
+        return nil
+    }
     
     return (length + width) * 2
 }
-perimeterOfRectangle(length: 6, width: 3)
+// Test case 1: length: 6 width 3 return 18
+let result1 = perimeterOfRectangle(length: 6, width: 3)
+//Test case 2: length: -2, width 8 return: nil
+let result2 = perimeterOfRectangle(length: -2, width: 8)
+// Test case 3: length: 2, width: -8, return nil
+let result3 = perimeterOfRectangle(length: 2, width: -8)
+
+
 
 // Triangle Perimeter Number 2
 
@@ -44,11 +55,22 @@ perimeterOfRectangle(length: 6, width: 3)
 /// - Parameter sideA: one side of the triangle
 /// - Parameter sideB: the second side of the triangle
 /// - Parameter sideC: the third side of the triangle
-func perimeterOfATriangle(sideA: Double, sideB: Double, sideC: Double)->Double{
-    
+func perimeterOfATriangle(sideA: Double, sideB: Double, sideC: Double)->Double? {
+    guard sideA > 0, sideB > 0, sideC > 0 else {
+        return nil
+    }
     return (sideA + sideB + sideC)
 }
-perimeterOfATriangle(sideA: 3, sideB: 6, sideC: 9)
+//Test case 1: A: 3, B: 6, C: 9, return 18
+let result11 = perimeterOfATriangle(sideA: 3, sideB: 6, sideC: 9)
+//Test case 1: A: 3, B: 6, C: -9, return: nil
+let result21 = perimeterOfATriangle(sideA: 3, sideB: 6, sideC: -9)
+//Test case 1: A: 3, B: -6, C: 9, return: nil
+let result31 = perimeterOfATriangle(sideA: 3, sideB: -6, sideC: 9)
+//Test case 1: A: -3, B: 6, C: 9, return: nil
+let result41 = perimeterOfATriangle(sideA: -3, sideB: 6, sideC: 9)
+
+
 
 // Area of a triangle Number 3
 
@@ -61,6 +83,8 @@ func areaOfATriangle(base: Double, height: Double)->Double{
 }
 areaOfATriangle(base: 3, height: 8)
 
+
+
 // Surface area of a cone Number 4
 
 /// surface area of a cone
@@ -71,6 +95,8 @@ func surfaceAreaOfACone(side: Double, radius: Double)->Double{
     return pow(radius, 2) * Double.pi + (Double.pi * radius * side)
 }
 surfaceAreaOfACone(side: 2, radius: 5)
+
+
 
 // Area of a cone Number 5
 
